@@ -11,7 +11,7 @@ end
 
 #  Demonstration of different usages
 
-# Passing a typical block
+# Passing a typical block that has contains logic for calculating primes
 
 block_use = higher_order(20) do |k|
   filter=[]
@@ -22,10 +22,10 @@ block_use = higher_order(20) do |k|
 end
 
 
-# Passing a lambda having a map function
+# Passing a lambda having a map function that calculates squares
 map_use= higher_order(20) {|x|x**2}
 
-# Passing a lambda having a filter function
+# Passing a lambda having a filter function that filters out odd numbers
 filter_use= higher_order(20) {|x|x if x.odd?}
 
 # Prints out the output for the first 20 primes, squares and odd numbers respectively.
