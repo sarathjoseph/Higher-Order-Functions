@@ -11,7 +11,7 @@ end
 
 #  Demonstration of different usages
 
-# Passing a typical block that has contains logic for calculating primes
+# Passing a typical block that contains logic for calculating primes
 
 block_use = higher_order(20) do |k|
   filter=[]
