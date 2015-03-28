@@ -11,21 +11,18 @@ end
 
 #  Demonstration of different usages
 
-# Passing a typical block that contains logic for calculating primes
+# Passing a typical block
 
 block_use = higher_order(20) do |k|
   filter=[]
-  [*2..Math.sqrt(k)].each do |r|
-    filter<<k%r
-  end
+  [*2..Math.sqrt(k)].each {|r| filter<<k%r }
   k if k!=1 && !(filter.include?0)
 end
 
-
-# Passing a lambda having a map function that calculates squares
+# Passing a lambda having a map function
 map_use= higher_order(20) {|x|x**2}
 
-# Passing a lambda having a filter function that filters out odd numbers
+# Passing a lambda having a filter function
 filter_use= higher_order(20) {|x|x if x.odd?}
 
 # Prints out the output for the first 20 primes, squares and odd numbers respectively.
