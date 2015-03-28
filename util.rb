@@ -9,8 +9,6 @@ def higher_order(n)
   return res.compact
 end
 
-#  Demonstration of different usages
-
 # Passing a typical block
 
 block_use = higher_order(20) do |k|
