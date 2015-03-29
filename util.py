@@ -1,18 +1,13 @@
 def higher_order(iterable, function):
 	
-	if not iterable:
-		return []
-
+	if not iterable:return []
 	iter=[]
 
-	if hasattr(iterable, '__iter__'):
-		iter=iterable
-	elif isinstance( iterable, int ):
-		iter=range(iterable)
+	if hasattr(iterable, '__iter__'):iter=iterable
 
-	
-	if isinstance (function(iter[0]), bool):
-		return [x for x in iter if function(x)]
+	elif isinstance( iterable, int ):iter=range(iterable)
+
+	if isinstance (function(iter[0]), bool):return [x for x in iter if function(x)]
 	
 	return [function(x) for x in iter]
 
@@ -27,3 +22,10 @@ e2=higher_order(10,lambda k: k%2==0)
 e3= higher_order(higher_order(10,lambda x:x*x), lambda k: not k%2==0)
 
 print( e1, e2, e3)
+
+"""
+
+Outputs
+([0, 1, 4, 9, 16], [0, 2, 4, 6, 8], [1, 9, 25, 49, 81])
+
+"""
