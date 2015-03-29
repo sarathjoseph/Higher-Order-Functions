@@ -9,7 +9,7 @@ def higher_order(iterable, function):
 
 	if isinstance (function(iter[0]), bool):return [x for x in iter if function(x)]
 	
-	return [function(x) for x in iter]
+	return [function(x) for x in iter if not function(x)==None]
 
 # takes a mapper function
 e1=higher_order(range(5),lambda x:x*x)
@@ -19,7 +19,7 @@ e1=higher_order(range(5),lambda x:x*x)
 e2=higher_order(10,lambda k: k%2==0)
 
 # prints out odd squares
-e3= higher_order(higher_order(10,lambda x:x*x), lambda k: not k%2==0)
+e3= higher_order(10,lambda x:x*x if not x%2==0 else None)
 
 print( e1, e2, e3)
 
