@@ -1,9 +1,16 @@
 
-# A higher order function that takes in typical blocks in addition to lambdas for filter and map functions
+# A higher order function that takes in arrays and numerics and typical blocks in addition to lambdas for  map functions and comprehensions
 
 def higher_order(n)
 
-  [*1..n].collect { |x| yield x }.compact
+  list=[]
+
+  if n.is_a? Array
+    list=n
+  elsif n.is_a? Numeric
+    list=[*1..n]
+  end
+  list.collect { |x|  yield x }.compact
 
 end
 
@@ -17,11 +24,11 @@ block_use = higher_order(20) do |k|
 end
 
 # Passing a lambda having a map function
-map_use= higher_order(20) {|x|x**2}
+map_use= higher_order(10) {|x|x**3 }
 
-# Passing a lambda having a filter function
-filter_use= higher_order(20) {|x|x if x.odd?}
+# Passing a lambda having a comprehension
+comprehension= higher_order([*1..20]) {|k| k**2 if k.odd?}
 
 # Prints out the output for the first 20 primes, squares and odd numbers respectively.
-print(block_use,"\n", map_use ,"\n", filter_use)
+print(block_use,"\n", map_use ,"\n", comprehension)
 
