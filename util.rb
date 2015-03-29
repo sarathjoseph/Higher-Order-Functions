@@ -29,6 +29,14 @@ map_use= higher_order(10) {|x|x**3 }
 # Passing a lambda having a comprehension
 comprehension= higher_order([*1..20]) {|k| k**2 if k.odd?}
 
-# Prints out the output for the first 20 primes, squares and odd numbers respectively.
 print(block_use,"\n", map_use ,"\n", comprehension)
+
+# Produces the following result
+=begin
+[2, 3, 5, 7, 11, 13, 17, 19]
+[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+[1, 9, 25, 49, 81, 121, 169, 225, 289, 361]
+=end
+
+
 
